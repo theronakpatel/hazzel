@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { ChangeEvent, DragEvent, useMemo, useRef, useState } from 'react'
-import { ArrowDown, ArrowLeft, Check, ChevronDown, CircleHelp, Download, FileAudio2, FileVideo2, LoaderCircle, RefreshCw, ShieldCheck, Upload } from 'lucide-react'
+import { ArrowDown, Check, ChevronDown, CircleHelp, Download, FileAudio2, FileVideo2, LoaderCircle, RefreshCw, ShieldCheck, Upload } from 'lucide-react'
 import type { FFmpeg } from '@ffmpeg/ffmpeg'
 
 type MediaKind = 'audio' | 'video'
@@ -85,7 +85,7 @@ export default function ConvertPage() {
   }
 
   return <main className="shell"><section className="main-area">
-    <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">sonora</Link><Link className="nav-tool-link nav-tool-active" href="/convert">Convert files</Link></div><Link className="quiet-button back-link" href="/"><ArrowLeft size={14} /> Back to studio</Link></header>
+    <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">sonora</Link><nav className="page-switcher" aria-label="Pages"><Link className="page-switch-link" href="/">Studio</Link><Link className="page-switch-link page-switch-active" aria-current="page" href="/convert">Convert files</Link></nav></div></header>
     <div className="content convert-content">
       <div className="eyebrow"><RefreshCw size={13} /> SIMPLE FILE CONVERTER</div>
       <h1 className="convert-title">One file. <span>Any format.</span></h1>
