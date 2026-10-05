@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { AudioLines, AudioWaveform, Check, ChevronDown, CircleHelp, Download, Headphones, LoaderCircle, Music2, Pause, Play, Plus, RotateCcw, Upload, Volume2, WandSparkles, Mic2, SlidersHorizontal, Zap } from 'lucide-react'
 
 type Effect = 'tempo' | 'pitch' | 'bass' | 'spatial' | 'bitDepth' | 'vocal' | 'distortion'
@@ -267,7 +268,7 @@ export default function Home() {
   return (
     <main className="shell">
       <section className="main-area">
-        <header className="topbar"><div className="breadcrumb"><strong>sonora</strong><span>/</span> <span>Make something magic</span></div><div className="top-actions"><button className="quiet-button" onClick={() => { setTempo(1); setPitch(0); setBass(0); setSpatial(0.5); setBitDepth(16); setVocal(0); setDistortion(0); setEnabled({ tempo: true, pitch: false, bass: true, spatial: true, bitDepth: false, vocal: false, distortion: false }); setSelectedVibe(''); useNotice('All controls reset.') }}><RotateCcw size={14} /> Reset all</button><button className="export-button" onClick={exportAudio} disabled={exporting || !file}>{exporting ? <LoaderCircle size={15} className="spin" /> : <Download size={15} />}{exporting ? 'Rendering…' : 'Export mix'}</button></div></header>
+        <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">sonora</Link><Link className="nav-tool-link" href="/convert">Convert files</Link></div><div className="top-actions"><button className="quiet-button" onClick={() => { setTempo(1); setPitch(0); setBass(0); setSpatial(0.5); setBitDepth(16); setVocal(0); setDistortion(0); setEnabled({ tempo: true, pitch: false, bass: true, spatial: true, bitDepth: false, vocal: false, distortion: false }); setSelectedVibe(''); useNotice('All controls reset.') }}><RotateCcw size={14} /> Reset all</button><button className="export-button" onClick={exportAudio} disabled={exporting || !file}>{exporting ? <LoaderCircle size={15} className="spin" /> : <Download size={15} />}{exporting ? 'Rendering…' : 'Export mix'}</button></div></header>
 
         <div className="content">
           <div className="page-heading"><div><div className="eyebrow"><WandSparkles size={13} /> YOUR PERSONAL AUDIO STUDIO</div><h1>Shape the <span>sound.</span></h1><p>Small adjustments. A whole new feeling.</p></div><div className="headphone-tip"><Headphones size={16} /><span>Best experienced with headphones</span></div></div>
