@@ -56,7 +56,7 @@ export default function ConvertPage() {
     if (!file) return
     setBusy(true); setProgress(0); setMessage('Preparing your file…')
     const inputName = `input-${Date.now()}.${file.name.split('.').pop()?.toLowerCase() || 'bin'}`
-    const outputName = `sonora-output.${format}`
+    const outputName = `hezzal-output.${format}`
     try {
       const ffmpeg = await getEngine()
       await ffmpeg.writeFile(inputName, new Uint8Array(await file.arrayBuffer()))
@@ -85,7 +85,7 @@ export default function ConvertPage() {
   }
 
   return <main className="shell"><section className="main-area">
-    <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">sonora</Link><nav className="page-switcher" aria-label="Pages"><Link className="page-switch-link" href="/">Studio</Link><Link className="page-switch-link page-switch-active" aria-current="page" href="/convert">Convert files</Link></nav></div></header>
+    <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">hezzal</Link><nav className="page-switcher" aria-label="Pages"><Link className="page-switch-link" href="/">Studio</Link><Link className="page-switch-link page-switch-active" aria-current="page" href="/convert">Convert files</Link></nav></div></header>
     <div className="content convert-content">
       <div className="eyebrow"><RefreshCw size={13} /> SIMPLE FILE CONVERTER</div>
       <h1 className="convert-title">One file. <span>Any format.</span></h1>
@@ -112,6 +112,6 @@ export default function ConvertPage() {
       <div className="format-help"><h2>What can I convert?</h2><div className="format-help-grid"><div><strong>Audio files</strong><span>MP3 · WAV · OGG · M4A · FLAC</span></div><div><strong>Video files</strong><span>MP4 · WebM · MOV and common formats</span></div></div><p>Only convert media you own or have permission to use. To convert your own YouTube upload, download it through YouTube Studio first, then add the file here.</p></div>
       <div className="engine-note"><span className="engine-dot" />First conversion loads the browser converter (~31 MB). Large files may take a while depending on your device.</div>
     </div>
-    <footer className="footer"><span>SONORA STUDIO <span className="footer-dot">•</span> YOUR FILES STAY YOURS</span><span>MADE FOR THE WAY YOU LISTEN <RefreshCw size={12} /></span></footer>
+    <footer className="footer"><span>HEZZAL <span className="footer-dot">•</span> YOUR FILES STAY YOURS</span><span>MADE FOR THE WAY YOU LISTEN <RefreshCw size={12} /></span></footer>
   </section></main>
 }

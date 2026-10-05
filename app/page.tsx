@@ -224,7 +224,7 @@ export default function Home() {
       if (enabled.bitDepth && bitDepth < 16) rendered = reduceBitDepth(rendered, bitDepth)
       const wav = encodeWav(rendered)
       const blob = new Blob([wav], { type: 'audio/wav' }); const url = URL.createObjectURL(blob)
-      const a = document.createElement('a'); a.href = url; a.download = `${file.name.replace(/\.[^.]+$/, '')}-sonora.wav`; a.click(); URL.revokeObjectURL(url)
+      const a = document.createElement('a'); a.href = url; a.download = `${file.name.replace(/\.[^.]+$/, '')}-hezzal.wav`; a.click(); URL.revokeObjectURL(url)
     } catch (err) {
       useNotice(err instanceof Error ? `Export failed: ${err.message}` : 'Export failed. Try a shorter audio file.')
     } finally { setExporting(false) }
@@ -268,7 +268,7 @@ export default function Home() {
   return (
     <main className="shell">
       <section className="main-area">
-        <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">sonora</Link><nav className="page-switcher" aria-label="Pages"><Link className="page-switch-link page-switch-active" aria-current="page" href="/">Studio</Link><Link className="page-switch-link" href="/convert">Convert files</Link></nav></div><div className="top-actions"><button className="quiet-button" onClick={() => { setTempo(1); setPitch(0); setBass(0); setSpatial(0.5); setBitDepth(16); setVocal(0); setDistortion(0); setEnabled({ tempo: true, pitch: false, bass: true, spatial: true, bitDepth: false, vocal: false, distortion: false }); setSelectedVibe(''); useNotice('All controls reset.') }}><RotateCcw size={14} /> Reset all</button><button className="export-button" onClick={exportAudio} disabled={exporting || !file}>{exporting ? <LoaderCircle size={15} className="spin" /> : <Download size={15} />}{exporting ? 'Rendering…' : 'Export mix'}</button></div></header>
+        <header className="topbar"><div className="topbar-left"><Link className="site-wordmark" href="/">hezzal</Link><nav className="page-switcher" aria-label="Pages"><Link className="page-switch-link page-switch-active" aria-current="page" href="/">Studio</Link><Link className="page-switch-link" href="/convert">Convert files</Link></nav></div><div className="top-actions"><button className="quiet-button" onClick={() => { setTempo(1); setPitch(0); setBass(0); setSpatial(0.5); setBitDepth(16); setVocal(0); setDistortion(0); setEnabled({ tempo: true, pitch: false, bass: true, spatial: true, bitDepth: false, vocal: false, distortion: false }); setSelectedVibe(''); useNotice('All controls reset.') }}><RotateCcw size={14} /> Reset all</button><button className="export-button" onClick={exportAudio} disabled={exporting || !file}>{exporting ? <LoaderCircle size={15} className="spin" /> : <Download size={15} />}{exporting ? 'Rendering…' : 'Export mix'}</button></div></header>
 
         <div className="content">
           <div className="page-heading"><div><div className="eyebrow"><WandSparkles size={13} /> YOUR PERSONAL AUDIO STUDIO</div><h1>Shape the <span>sound.</span></h1><p>Small adjustments. A whole new feeling.</p></div><div className="headphone-tip"><Headphones size={16} /><span>Best experienced with headphones</span></div></div>
@@ -305,7 +305,7 @@ export default function Home() {
 
           <div className="bottom-note"><div className="note-check"><Check size={14} /></div><span>Effects combine in real time. Your original track is always kept untouched.</span><button onClick={() => useNotice('Tempo changes speed and pitch. Bass shifts the low-frequency balance. 8D moves audio across the left and right channels.')}><CircleHelp size={15} /></button></div>
         </div>
-        <footer className="footer"><span>SONORA STUDIO <span className="footer-dot">•</span> A LITTLE MORE YOU IN EVERY TRACK</span><span>MADE FOR THE WAY YOU LISTEN <AudioLines size={13} /></span></footer>
+        <footer className="footer"><span>HEZZAL <span className="footer-dot">•</span> A LITTLE MORE YOU IN EVERY TRACK</span><span>MADE FOR THE WAY YOU LISTEN <AudioLines size={13} /></span></footer>
       </section>
 
       {notice && <div className="toast" role="status">{notice}</div>}
